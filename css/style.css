@@ -1,0 +1,251 @@
+*{
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+/*关于 按钮*/
+.about{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    height: 1.5em;
+    line-height: 1.5em;
+    width: 1.5em;
+    border-radius: .75em;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0,0,0,.05);
+    cursor: pointer;
+}
+
+/*弹窗层*/  
+
+.pop-box {   
+    z-index: 9999; /*这个数值要足够大，才能够显示在最上层*/  
+    margin-bottom: 2px;   
+    display: none;   
+    position: fixed;
+    background: #FFF;   
+    text-align: center;
+    font-size: 16px;
+    width: 300px;
+}   
+.pop-box .caption{
+    font-size: 23px;
+    display: block;
+    text-align: left;
+    border-left: 4px solid #563d7c;
+    margin: 10px 0 10px 5px;
+    background: #eee;
+    padding: 3px;
+    color: #666;
+}  
+.pop-box .thanks{
+    /*text-indent: 30px;*/
+    padding: 0 10px;
+    text-align: left;
+    line-height: 25px;
+    color: #555;
+}
+.pop-box .copyBaidu{
+    font-size: 12px;
+    /*text-indent: 30px;*/
+    padding: 0 10px;
+    text-align: left;
+    line-height: 18px;
+    color: #999;
+}  
+.pop-box .thanks a{
+    margin: 0 2px;
+    color: #666;
+    text-decoration: none;
+} 
+.pop-box .thanks a:hover{
+    margin: 0 2px;
+    color: #666;
+    text-decoration: underline;
+} 
+
+.pop-box .readit{   /* “我知道了” */
+    font-size: 14px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+}
+.pop-box .readit:hover{   /* “我知道了” */
+    color: #666;
+}
+
+.mask {   /*遮罩层*/  
+    color:#C7EDCC;
+    background-color:#000;
+    position:absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.59;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 59);
+    filter: alpha(opacity = 59);
+} 
+
+/*页面主体部分*/  
+.container{
+    height: 500px;
+    width: 100%;
+    text-align: center;
+}
+.title{
+    padding-top: 100px;
+}
+#kw {
+    width: 521px;
+    height: 20px;
+    padding: 9px 7px;
+    font: 16px arial;
+    border: 1px solid #d8d8d8;
+    border-bottom: 1px solid #ccc;
+    vertical-align: top;
+    outline: none;
+    margin-right: 0;
+}
+#kw:focus{
+    border-top: 1px solid #38f !important;
+    border-left: 1px solid #38f !important;
+    border-bottom: 1px solid #38f !important;
+}
+/*百度一下*/
+.btn {
+    cursor: pointer;
+    width: 102px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background-color: #38f;
+    font-size: 16px;
+    color: white;
+    margin-left: -10px;
+}
+.logo {
+    height: 100px;
+    margin-bottom: -20px;
+}
+#instructions { /*提示语*/
+    display: inline-block;
+    margin-top: 40px;
+    padding: 30px 2px;
+    color: #999999;
+    font-size: 1.1em;
+}
+.link {
+    /*margin-top: 100px;*/
+    display: block;
+}
+a.link_button {
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    line-height: 38px;
+    margin: 0 10px;
+    background-color: #38f;
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+/*链接框*/
+.copyable{
+    width: 300px;
+    height: 30px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+#arrow{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+footer{
+    color: gray;
+    text-align: center;
+}
+footer a{
+    color: gray;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 666px) {  /*针对小屏幕的优化*/
+    
+    .title{
+        font-size: 16px;
+        font-weight: 400;
+        padding-top: 100px;
+    }
+    
+    .logo {
+        height: 50px;
+        margin-bottom: -8px;
+    }
+    
+    .search-box{
+        padding-top: 10px;
+        display: block;
+        width: 100%;
+    }
+    
+    #kw {
+        height: 20px;
+        font: 16px arial;
+        border: 1px solid #d8d8d8;
+        border-bottom: 1px solid #ccc;
+        vertical-align: top;
+        outline: none;
+        
+        float:left; 
+        width: 95%;
+        margin-right: -200px;
+    }
+    
+    /*百度一下*/
+    .btn {
+        height: 40px;
+        padding: 0;
+        border: 0;
+        background-color: #38f;
+        font-size: 16px;
+        color: white;
+        margin-left: -10px;
+        float: right; 
+        width: 100px;
+        z-index: 999999;
+    }
+    
+    .link{
+        margin-top: 30px;
+    }
+    
+    a.link_button {
+        display: inline-block;
+        width: 100px;
+        height: 35px;
+        line-height: 38px;
+        margin: 0 10px;
+        background-color: #38f;
+        color: white;
+        text-align: center;
+        font-size: 0.8em;
+        text-decoration: none;
+    }
+    /*链接框*/
+    .copyable{
+        width: 80%;
+        height: 30px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        vertical-align: middle;
+    }
+}

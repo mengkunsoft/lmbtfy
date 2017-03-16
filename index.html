@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="cn">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>让我帮你百度一下|Let Me Baidu That For You</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <img src="img/arrow.png" id="arrow">
+    <div class="about" title="点我点我！" onclick="showAbout()">?</div>
+    <div id="msgbox" class="pop-box">
+        <span class="caption"> 专治各种伸手党</span>
+        <div class="thanks">
+            创意及代码来自<a href="http://lmbtfy.cn/" target="_blank">lmbtfy.cn</a>
+            以及<a href="http://lmbtfy.retaker.me/" target="_blank">lmbtfy.retaker.me</a>，孟坤网页实验室完善了其前端界面。
+        </div>
+        <div class="thanks copyBaidu">
+            *本站与百度公司没有任何联系，baidu以及本站出现的百度公司Logo是百度公司的商标。
+        </div>
+        
+        <div class="readit" onclick="hideAbout();">我知道了</div>
+        
+    </div>
+	<div id="mask" class="mask"></div>
+
+    <div class="container">
+        <div>
+            <h1 class="title">需要我帮你<img src="img/baidu_logo.png" class="logo">么</h1>
+            <span class="search-box">
+                <input type="text" class="search-text" id="kw">
+                <button class="btn" id="search">百度一下</button>
+            </span>
+        </div>
+        <div id="instructions">
+            输入一个问题，然后按百度一下
+        </div>
+        <div class="link" style="display: none" id="link">
+            <input type="text" readonly id="lmbtfyLink" class="copyable">
+            <div>
+                <a class="link_button" href="javascript:void(0);" id="copy" data-clipboard-target="lmbtfyLink">复制</a>
+                <a class="link_button" href="javascript:void(0);" id="go" target="_blank">预览</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright &copy;&nbsp;<a href="http://mkblog.cn" target="_blank">mkblog.cn</a>
+    </footer>
+</body>
+<script src="//cdnjscn.b0.upaiyun.com/libs/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
+<script src="//cdnjscn.b0.upaiyun.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/lmbtfy.js"></script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan  style='display:none;'  id='cnzz_stat_icon_1257545628'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257545628%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</html>
