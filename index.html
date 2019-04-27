@@ -1,57 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head lang="cn">
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>让我帮你百度一下|Let Me Baidu That For You</title>
+    
+    <title>让我帮你百度一下 | Let Me Baidu That For You</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <img src="img/arrow.png" id="arrow">
-    <div class="about" title="点我点我！" onclick="showAbout()">?</div>
-    <div id="msgbox" class="pop-box">
-        <span class="caption"> 专治各种伸手党</span>
-        <div class="thanks">
-            创意及代码来自<a href="http://lmbtfy.cn/" target="_blank">lmbtfy.cn</a>
-            以及<a href="http://lmbtfy.retaker.me/" target="_blank">lmbtfy.retaker.me</a>，孟坤网页实验室完善了其前端界面。
-        </div>
-        <div class="thanks copyBaidu">
-            *本站与百度公司没有任何联系，baidu以及本站出现的百度公司Logo是百度公司的商标。
-        </div>
-        
-        <div class="readit" onclick="hideAbout();">我知道了</div>
-        
-    </div>
-	<div id="mask" class="mask"></div>
-
     <div class="container">
         <div>
-            <h1 class="title">需要我帮你<img src="img/baidu_logo.png" class="logo">么</h1>
-            <span class="search-box">
-                <input type="text" class="search-text" id="kw">
-                <button class="btn" id="search">百度一下</button>
-            </span>
+            <h1 class="title">让我帮你 <img src="img/baidu_logo.png" class="baidu-logo" alt="百度" title="让我帮你百度一下"> 一下</h1>
+            <div class="mk-search-form">
+                <input type="text" id="kw">
+                <button id="search" class="anim-trans">百度一下</button>
+            </div>
         </div>
-        <div id="instructions">
-            输入一个问题，然后按百度一下
-        </div>
-        <div class="link" style="display: none" id="link">
-            <input type="text" readonly id="lmbtfyLink" class="copyable">
+        
+        <div id="instructions">输入一个问题，然后点击百度一下</div>
+        
+        <div id="output-box">
+            <input type="text" id="output-link" readonly>
             <div>
-                <a class="link_button" href="javascript:void(0);" id="copy" data-clipboard-target="lmbtfyLink">复制</a>
-                <a class="link_button" href="javascript:void(0);" id="go" target="_blank">预览</a>
+                <button class="btn btn-copy anim-trans" data-clipboard-target="#output-link">复制</button>
+                <button class="btn anim-trans" id="btn-preview">预览</button>
             </div>
         </div>
     </div>
-    <footer>
-        Copyright &copy;&nbsp;<a href="http://mkblog.cn" target="_blank">mkblog.cn</a>
+    
+    <footer class="copyright">
+        Copyright &copy; <a href="https://mkblog.cn" target="_blank">mkblog.cn</a>
     </footer>
+    
+    <!-- 关于弹窗 -->
+    <div id="about-box" class="mk-pop-box">
+        <div class="mk-pop-box-inner">
+            <h3 class="mk-pop-box-title">专治各种伸手党</h3>
+            
+            <div class="mk-pop-box-content">
+                <p>创意及原始代码来自 <a href="http://lmbtfy.cn/" target="_blank" rel="nofollow">lmbtfy.cn</a>，<a href="http://lab.mkblog.cn" target="_blank">孟坤网页实验室</a>完善了其前端界面。</p>
+                <p>须知：本站与百度公司没有任何联系，baidu 以及本站出现的百度公司 Logo 是百度公司的商标。</p>
+            </div>
+            
+            <button class="mk-pop-box-btn anim-trans" onclick="$('#about-box').fadeOut(200);">我知道了</button>
+        </div>
+    </div>
+	
+    <div class="about anim-trans" title="点击查看帮助信息" onclick="showAbout()">?</div>
+    
+    <img src="img/arrow.png" id="arrow">
+    
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/lmbtfy.js"></script>
 </body>
-<script src="//cdnjscn.b0.upaiyun.com/libs/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/lmbtfy.js"></script>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan  style='display:none;'  id='cnzz_stat_icon_1257545628'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257545628%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
-
 </html>

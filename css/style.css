@@ -1,9 +1,30 @@
-*{
+@charset "utf-8";
+
+div, span, p, a, img, footer, html, body, button, h1, h2, h3, h4, h5, input {
     font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/*关于 按钮*/
-.about{
+.anim-trans {
+    -webkit-transition: .3s ease all;
+       -moz-transition: .3s ease all;
+         -o-transition: .3s ease all;
+            transition: .3s ease all;
+}
+
+/* 鼠标指针箭头 */
+#arrow {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+/* 关于按钮 */
+.about {
     position: absolute;
     top: 1em;
     right: 1em;
@@ -14,235 +35,222 @@
     font-size: 16px;
     text-align: center;
     color: #fff;
+    background-color: #000;
     background-color: rgba(0,0,0,.05);
     cursor: pointer;
 }
+.about:hover {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.26);
+}
 
 /*弹窗层*/  
-
-.pop-box {   
-    z-index: 9999; /*这个数值要足够大，才能够显示在最上层*/  
+.mk-pop-box {   
+    z-index: 9999;
     margin-bottom: 2px;   
     display: none;   
     position: fixed;
-    background: #FFF;   
-    text-align: center;
-    font-size: 16px;
-    width: 300px;
-}   
-.pop-box .caption{
-    font-size: 23px;
-    display: block;
-    text-align: left;
-    border-left: 4px solid #563d7c;
-    margin: 10px 0 10px 5px;
-    background: #eee;
-    padding: 3px;
-    color: #666;
-}  
-.pop-box .thanks{
-    /*text-indent: 30px;*/
-    padding: 0 10px;
-    text-align: left;
-    line-height: 25px;
-    color: #555;
-}
-.pop-box .copyBaidu{
-    font-size: 12px;
-    /*text-indent: 30px;*/
-    padding: 0 10px;
-    text-align: left;
-    line-height: 18px;
-    color: #999;
-}  
-.pop-box .thanks a{
-    margin: 0 2px;
-    color: #666;
-    text-decoration: none;
-} 
-.pop-box .thanks a:hover{
-    margin: 0 2px;
-    color: #666;
-    text-decoration: underline;
-} 
-
-.pop-box .readit{   /* “我知道了” */
     font-size: 14px;
-    line-height: 40px;
+    width: 100%;
+    max-width: 350px;
+}
+.mk-pop-box-inner {
+    background: #fff;
+    border-radius: 3px;
+    border-top: 2px solid #fa7f40;
+    padding: 18px;
+}
+/* 弹窗标题 */
+.mk-pop-box-title {
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 10px;
+}
+/* 弹窗主体内容 */
+.mk-pop-box-content {
+    margin-bottom: 13px;
+}
+.mk-pop-box-content p, .mk-pop-box-content p a {
+    font-size: 14px;
+    color: #808080;
+    text-decoration: none;
+    line-height: 20px;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+}
+.mk-pop-box-content p a:hover { 
+    color: #fa7f40;
+}
+/* 弹窗中的按钮 */
+.mk-pop-box-btn {
     cursor: pointer;
-    transition: all 0.5s ease;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
+    margin: 0 auto;
+    min-width: 50px;
+    outline: none;
+    text-align: center;
+    border-radius: 2px;
+    display: block;
+    height: 34px;
+    line-height: 35px;
+    padding: 0 40px;
+    font-size: 14px;
+    background: #ff8140;
+    border: 1px solid #f77c3d;
+    color: #fff;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
 }
-.pop-box .readit:hover{   /* “我知道了” */
-    color: #666;
+.mk-pop-box-btn:hover {
+    background: #f7671d;
+    border: 1px solid #f06923;
 }
-
-.mask {   /*遮罩层*/  
-    color:#C7EDCC;
-    background-color:#000;
-    position:absolute;
+/* 弹窗遮罩层 */  
+.mk-pop-box:before {
+    content: "";
+    color: #C7EDCC;
+    background-color: #000;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 0.59;
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 59);
     filter: alpha(opacity = 59);
+    z-index: -1;
 } 
 
-/*页面主体部分*/  
-.container{
+/* 页面主体部分 */  
+.container {
     height: 500px;
     width: 100%;
     text-align: center;
+    padding: 10px;
 }
-.title{
+
+/* 大标题 */
+.title {
     padding-top: 100px;
+    padding-bottom: 26px;
 }
-#kw {
-    width: 521px;
-    height: 20px;
-    padding: 9px 7px;
-    font: 16px arial;
-    border: 1px solid #d8d8d8;
-    border-bottom: 1px solid #ccc;
-    vertical-align: top;
-    outline: none;
-    margin-right: 0;
-}
-#kw:focus{
-    border-top: 1px solid #38f !important;
-    border-left: 1px solid #38f !important;
-    border-bottom: 1px solid #38f !important;
-}
-/*百度一下*/
-.btn {
-    cursor: pointer;
-    width: 102px;
-    height: 40px;
-    padding: 0;
-    border: 0;
-    background-color: #38f;
-    font-size: 16px;
-    color: white;
-    margin-left: -10px;
-}
-.logo {
+.baidu-logo {
     height: 100px;
     margin-bottom: -20px;
 }
-#instructions { /*提示语*/
+
+/* 搜索表单 */
+.mk-search-form {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+.mk-search-form input {
+    float: left;
+    padding: 0 6px;
+    width: 77%;
+    height: 37px;
+    border: 1px solid #d8d8d8;
+    border-right-color: transparent;
+    line-height: 37px;
+    font-size: 1em;
+}
+.mk-search-form input:focus {
+    border: 1px solid #3385ff;
+    border-right-color: transparent;
+    outline: none;
+}
+.mk-search-form button {
+    cursor: pointer;
+    border: none;
+    background-color: #3385ff;
+    color: white;
+    position: relative;
+    overflow: visible;
+    width: 23%;
+    height: 37px;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+.mk-search-form button:hover {
+    background-color: #317ef3;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+/* 提示语 */
+#instructions { 
     display: inline-block;
     margin-top: 40px;
     padding: 30px 2px;
     color: #999999;
-    font-size: 1.1em;
+    font-size: 20px;
 }
-.link {
-    /*margin-top: 100px;*/
-    display: block;
+
+/* 生成输出框 */
+#output-box {
+    display: none;
 }
-a.link_button {
+.btn {
     display: inline-block;
     width: 100px;
     height: 35px;
     line-height: 38px;
     margin: 0 10px;
-    background-color: #38f;
+    background-color: #3385ff;
     color: white;
     text-align: center;
     font-size: 0.8em;
-    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
+.btn:hover {
+    opacity: 0.8;
+}
+
 /*链接框*/
-.copyable{
+#output-link {
     width: 300px;
     height: 30px;
     font-size: 25px;
     margin-bottom: 20px;
     vertical-align: middle;
 }
-#arrow{
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-footer{
-    color: gray;
+
+/* 页脚 */
+.copyright, .copyright a {
+    color: #999;
     text-align: center;
-}
-footer a{
-    color: gray;
     text-decoration: none;
+    font-size: 14px;
 }
 
-@media screen and (max-width: 666px) {  /*针对小屏幕的优化*/
-    
-    .title{
+/* 响应式优化 */
+@media screen and (max-width: 666px) {  
+    .title {
         font-size: 16px;
         font-weight: 400;
         padding-top: 100px;
     }
     
-    .logo {
+    .baidu-logo {
         height: 50px;
-        margin-bottom: -8px;
+        margin: 0 5px -8px;
+    }
+
+    .mk-search-form {
+        font-size: 14px;
     }
     
-    .search-box{
-        padding-top: 10px;
-        display: block;
-        width: 100%;
+    #instructions {
+        font-size: 14px;
     }
-    
-    #kw {
-        height: 20px;
-        font: 16px arial;
-        border: 1px solid #d8d8d8;
-        border-bottom: 1px solid #ccc;
-        vertical-align: top;
-        outline: none;
-        
-        float:left; 
-        width: 95%;
-        margin-right: -200px;
-    }
-    
-    /*百度一下*/
-    .btn {
-        height: 40px;
-        padding: 0;
-        border: 0;
-        background-color: #38f;
-        font-size: 16px;
-        color: white;
-        margin-left: -10px;
-        float: right; 
-        width: 100px;
-        z-index: 999999;
-    }
-    
-    .link{
+
+    #output-box {
         margin-top: 30px;
     }
-    
-    a.link_button {
-        display: inline-block;
-        width: 100px;
-        height: 35px;
-        line-height: 38px;
-        margin: 0 10px;
-        background-color: #38f;
-        color: white;
-        text-align: center;
-        font-size: 0.8em;
-        text-decoration: none;
-    }
-    /*链接框*/
-    .copyable{
-        width: 80%;
+    /* 链接框 */
+    #output-link {
+        width: 100%;
         height: 30px;
         font-size: 20px;
         margin-bottom: 20px;
