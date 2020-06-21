@@ -1,6 +1,6 @@
 <p align="center">
-<a href="http://lab.mkblog.cn/lmbtfy/" target="_blank">
-<img src="https://user-images.githubusercontent.com/16880885/56845297-9c49cc80-68f1-11e9-94f5-cae16c730fe5.png" alt="让我帮你百度一下">
+<a href="http://tool.mkblog.cn/lmbtfy/" target="_blank">
+<img src="https://user-images.githubusercontent.com/16880885/85223529-75543100-b3f6-11ea-9eb4-6088c1199c74.jpg" alt="让我帮你百度一下">
 </a>
 </p>
 
@@ -23,12 +23,14 @@
 
 让我帮你百度一下 - 优化版
 
-创意及代码来自 lmbtfy.cn 以及 lmbtfy.retaker.me，孟坤网页实验室在原作的基础上作了一些小修改，以适应移动端浏览
+原始版本来自 bangbang(http://lmbtfy.cn/)，mengkun(https://mkblog.cn) 在原作的基础上进行了重置，风格变更为新版百度 UI，并适配了移动端
+
+交互效果参考了 不会百度么？(http://buhuibaidu.me/)
 
 ### 在线演示
 -----
 
-[http://lab.mkblog.cn/lmbtfy/](http://lab.mkblog.cn/lmbtfy/)
+[http://tool.mkblog.cn/lmbtfy/](http://tool.mkblog.cn/lmbtfy/)
 
 
 ### 相关项目
@@ -39,6 +41,11 @@
 
 ### 更新日志
 -----
+
+#### 2020/6/21
+- 重构项目，风格与新版百度 UI 适配。 **注意：本版本修改了参数的获取方式，与旧版不兼容！如果你曾经使用了旧版，那么不要替换为新版，否则以前生成的网址全部会失效**
+- 移除短网址模块
+- 增加点击指示特效
 
 #### 2019/10/14
 - 将网址缩短接口替换为搜狗接口，修复无法生成短网址的问题

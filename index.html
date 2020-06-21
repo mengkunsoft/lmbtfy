@@ -1,7 +1,6 @@
-<!doctype html> 
-<html> 
-<head> 
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="no-transform">
@@ -9,53 +8,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>让我帮你百度一下 | Let Me Baidu That For You</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/base64.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div>
-            <h1 class="title">让我帮你 <img src="img/baidu_logo.png" class="baidu-logo" alt="百度" title="让我帮你百度一下"> 一下</h1>
-            <div class="mk-search-form">
-                <input type="text" id="kw">
-                <button id="search" class="anim-trans">百度一下</button>
-            </div>
+    <section id="search">
+        <div class="search-header">
+            <h2>
+                <span class="let-me">让我帮你</span> 
+                <img src="img/baidu_logo.png" alt="百度" title="让我帮你百度一下"> 
+                <span class="for-you">一下</span>
+            </h2>
         </div>
         
-        <div id="instructions">输入一个问题，然后点击百度一下</div>
-        
-        <div id="output-box">
-            <input type="text" id="output-link" readonly>
-            <div>
-                <button class="btn btn-copy anim-trans" data-clipboard-target="#output-link">复制</button>
-                <button class="btn anim-trans" id="btn-preview">预览</button>
+        <form id="search-form">
+            <div class="search-form-group">
+                <div class="search-form-input">
+                    <input type="search" id="kw" maxlength="255" autocomplete="off" required>
+                </div>
+                <button id="search-submit">百度一下</button>
             </div>
-        </div>
-    </div>
+        </form>
+    </section>
     
-    <footer class="copyright">
-        Copyright &copy; <a href="https://mkblog.cn" target="_blank">mkblog.cn</a>
+    <section id="function">
+        <p id="tips">输入一个问题，然后点击百度一下</p>
+        
+        <button id="stop">快停下！我是自己人</button>
+        
+        <div id="output">
+            <textarea id="url-output" rows="3" readonly></textarea>
+            <div class="tool-btns">
+                <button data-clipboard-target="#url-output">复制</button>
+                <button id="preview">预览</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="footer">
+        <ul class="footer-left">
+            <li><a href="https://github.com/mengkunsoft/lmbtfy" target="_blank">源码下载</a></li>
+            <li><a href="http://lab.mkblog.cn/" target="_blank">更多好玩</a></li>
+        </ul>
+        
+        <ul class="footer-right">
+            <li>* 本站与百度公司没有任何联系，baidu 以及本站出现的百度公司 Logo 是百度公司的商标</li>
+        </ul>
     </footer>
     
-    <!-- 关于弹窗 -->
-    <div id="about-box" class="mk-pop-box">
-        <div class="mk-pop-box-inner">
-            <h3 class="mk-pop-box-title">专治各种伸手党</h3>
-            
-            <div class="mk-pop-box-content">
-                <p>创意及原始代码来自 <a href="http://lmbtfy.cn/" target="_blank" rel="nofollow">lmbtfy.cn</a>，<a href="http://lab.mkblog.cn" target="_blank">孟坤网页实验室</a>完善了其前端界面。</p>
-                <p>须知：本站与百度公司没有任何联系，baidu 以及本站出现的百度公司 Logo 是百度公司的商标。</p>
-            </div>
-            
-            <button class="mk-pop-box-btn anim-trans" onclick="$('#about-box').fadeOut(200);">我知道了</button>
-        </div>
-    </div>
-	
-    <div class="about anim-trans" title="点击查看帮助信息" onclick="showAbout()">?</div>
-    
-    <img src="img/arrow.png" id="arrow">
-    
-    <script src="js/clipboard.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/lmbtfy.js"></script>
+    <div id="arrow"></div>
 </body>
 </html>
