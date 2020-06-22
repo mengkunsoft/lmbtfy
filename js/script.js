@@ -2,15 +2,20 @@
  * 让我帮你百度一下【重制版】
  * GitHub 开源地址：https://github.com/mengkunsoft/lmbtfy
  **
- * 原始版本来自 bangbang(http://lmbtfy.cn/)，mengkun(https://mkblog.cn) 在原作的基础上进行了重置，风格变更为新版百度 UI，并适配了移动端
+ * 原始版本来自 bangbang(http://lmbtfy.cn/)，mengkun(https://mkblog.cn) 在原作的基础上进行了重制，风格变更为新版百度 UI，并适配了移动端
  * 交互效果参考了 不会百度么？(http://buhuibaidu.me/)
  **
  * 转载或使用时，还请保留以上信息，谢谢！
  */ 
 
+/* 低版本 IE polyfill */ 
+if(!window.location.origin) {
+    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+}
+
 /* 扩展一个getUrlParam的方法 */
-$.getUrlParam = function(name){
-    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+$.getUrlParam = function(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
     if (r !== null) return unescape(r[2]); return null;
 };
@@ -35,6 +40,7 @@ $(function() {
         }
     }
     
+    /* 有参数，启动百度教程 */
     if(!!query) {
         $tips.html('让我来教你正确的打开方式');
         $stop.fadeIn();
@@ -59,7 +65,7 @@ $(function() {
                             clearInterval(typeInterval);
                             $tips.html('3、点击下“百度一下”按钮');
                             
-                            $arrow.removeClass('active').show().animate({
+                            $arrow.removeClass('active').fadeIn().animate({
                                 left: $searchSubmit.offset().left + $searchSubmit.width()  / 2 + 'px',
                                 top:  $searchSubmit.offset().top  + $searchSubmit.height() / 2 + 'px'
                             }, 1000, function () {
@@ -94,11 +100,10 @@ $(function() {
         
         var question = $.trim($kw.val());
         if(!question) {
-            $kw.val('');
             $tips.html('<span style="color: red">搜了个寂寞？</span>');
+            $kw.val('');
         } else {
             $tips.html('↓↓↓ 复制下面的链接，教伸手党使用百度');
-            
             $('#output').fadeIn();
             $urlOutput.val(window.location.origin + window.location.pathname + '?q=' + Base64.encode(question)).focus().select();
         }

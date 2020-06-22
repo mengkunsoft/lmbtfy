@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 html, body, 
 div, section, header, footer,
 button, input, textarea,
@@ -114,7 +116,7 @@ html, body {
 #function {
     position: absolute;
     width: 100%;
-    top: 40%;
+    min-height: 220px;
     text-align: center;
     margin-top: 80px;
 }
