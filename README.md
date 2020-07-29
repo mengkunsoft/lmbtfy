@@ -60,3 +60,17 @@
 
 #### 更早的版本
 - 原始代码来自 bangbang(http://lmbtfy.cn/)
+
+### CloudFlare Workers 版本
+-----
+
+#### 优势
+
++ 部署便捷
++ 免费10万次请求
++ 支持伪静态
+
+#### 部署方法
+
++ 复制 [cf-workers.js](https://github.com/mengkunsoft/lmbtfy/tree/master/cf-workers.js) 里的所有内容，粘贴到 CloudFlare Workers 的脚本框内。
++ 点击“保存并部署”即可使用。
