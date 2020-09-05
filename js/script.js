@@ -22,7 +22,7 @@ $.getUrlParam = function(name) {
 
 $(function() {
     var $kw = $('#kw'),
-        $searchSubmit = $('#search-submit');
+        $searchSubmit = $('#search-submit'),
         $urlOutput = $('#url-output'),
         $tips = $('#tips'),
         $stop = $('#stop'),
@@ -30,7 +30,7 @@ $(function() {
     
     var stepTimeout, typeInterval;
     
-    /* 获取并解析查询参数 */ 
+    /* 获取并解析查询参数。参数加 Base64 编码是防止别人直接从链接中猜出了结果，而拒绝点击 */ 
     var query = $.getUrlParam('q');
     if(!!query) {
         try {

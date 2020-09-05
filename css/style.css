@@ -151,6 +151,7 @@ html, body {
     border-radius: 3px;
     border: 1px solid #c8c8c8;
     outline: none;
+    word-break: break-all;
 }
 #output textarea:focus {
     border-color: #4285f4;
